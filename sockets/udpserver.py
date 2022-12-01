@@ -1,4 +1,5 @@
 import socket
+import time
 
 
 
@@ -33,9 +34,9 @@ class UDPserver:
 
 		while(True):
 			message, address = udp_socket.recvfrom(self.buf_size)
-			print(f"CLient Message: {message}\nClient IP: {address}")
+			t = time.localtime()
 
-			self.send(message.upper(),udp_socket,address)
+			self.send(message,udp_socket,address)
 
 
 	def send(self,msg,udp_socket,address):
